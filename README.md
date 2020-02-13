@@ -3,7 +3,7 @@
 
 An online chat application build with Flutter, Dart and Firestore. 
 
-![](images/image.png)
+![](images/image.png)![](images/image2.png)
 ## Getting Started
 1. Install [Flutter](https://flutter.io)
 2. Clone the repo
