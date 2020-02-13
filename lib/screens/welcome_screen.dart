@@ -1,3 +1,5 @@
+import 'package:bjork/screens/login_screen.dart';
+import 'package:bjork/screens/registration_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bjork/constants.dart';
@@ -27,14 +29,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
       body: Container(
+
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xff130a47), Color(0xff2d062d) ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+              colors: [Color(0xff130a47), Color(0xff2d062d) ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
 
-          )
+            ),
+          image: DecorationImage(
+            colorFilter: ColorFilter.mode(Colors.black38, BlendMode.darken),
+            image: AssetImage('images/background.png'),
+            fit: BoxFit.cover
+          ),
+
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +89,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 padding: EdgeInsets.all(0),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                 onPressed: () {
-                  print(verticalPixel);
+                  showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
+                  LoginScreen()
+                  );
+                  //Navigator.pushNamed(context, LoginScreen.id);
                   //Go to login screen.
                 },
 
@@ -117,6 +129,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               padding: EdgeInsets.symmetric(vertical: 4.0),
               child: GestureDetector(
                 onTap: () {
+                  Navigator.pushNamed(context, RegistrationScreen.id);
                   //Go to registration screen.
                 },
 
@@ -133,30 +146,5 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         ),
       ),
     );
-  }
-}
-class CurvePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint();
-    paint.color = Colors.green[800];
-    paint.style = PaintingStyle.fill;
-
-    var path = Path();
-
-    path.moveTo(0, size.height * 0.9167);
-    path.quadraticBezierTo(size.width * 0.25, size.height * 0.875,
-        size.width * 0.5, size.height * 0.9167);
-    path.quadraticBezierTo(size.width * 0.75, size.height * 0.9584,
-        size.width * 1.0, size.height * 0.9167);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
   }
 }
