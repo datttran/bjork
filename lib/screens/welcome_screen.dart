@@ -88,9 +88,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 //color: Color(0xff7663E9),
                 padding: EdgeInsets.all(0),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                onPressed: () {
-                  showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
-                  LoginScreen()
+                onPressed: () async {
+                  await showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
+                  LoginScreen(0)).then((_)=> setState((){})
                   );
                   //Navigator.pushNamed(context, LoginScreen.id);
                   //Go to login screen.
@@ -107,7 +107,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: verticalPixel*2, horizontal: verticalPixel*4),
+                    padding: EdgeInsets.symmetric(vertical: verticalPixel*1.2, horizontal: verticalPixel*4),
                     child: FittedBox(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -128,8 +128,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 4.0),
               child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, RegistrationScreen.id);
+                onTap: () async {
+                  await showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
+                      LoginScreen(1)).then((_)=> setState((){})
+                  );
                   //Go to registration screen.
                 },
 

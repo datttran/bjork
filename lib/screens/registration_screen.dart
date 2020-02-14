@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:bjork/constants.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id = 'registration_screen';
@@ -9,18 +11,13 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
+    return Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: 200.0,
-              child: Image.asset('images/logo.png'),
-            ),
+
             SizedBox(
               height: 48.0,
             ),
@@ -73,27 +70,38 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 24.0,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                elevation: 5.0,
+              padding: EdgeInsets.symmetric(vertical: 16),
                 child: MaterialButton(
+                  elevation: 0,
+                  //color: Color(0xff7663E9),
+                  padding: EdgeInsets.all(0),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                   onPressed: () {
-                    //Implement registration functionality.
+
                   },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+
+                  child: Ink(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xff68b3ec), Color(0xff440598) ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: verticalPixel*2, horizontal: verticalPixel*4),
+                      child: FittedBox(
+                        child: Text('Register',
+                          style: TextStyle(color: Colors.white, fontSize: verticalPixel*2.5  ,fontStyle: FontStyle.italic),),
+                      ),
+                    ),
+                  )
               ),
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

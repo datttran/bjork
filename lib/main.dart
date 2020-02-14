@@ -22,8 +22,8 @@ class Bjork extends StatelessWidget {
       initialRoute: WelcomeScreen.id,
       routes:{
         WelcomeScreen.id : (context) => WelcomeScreen(),
-        LoginScreen.id : (context) => LoginScreen(),
-        RegistrationScreen.id : (context) => RegistrationScreen(),
+        LoginScreen.id : (context) => LoginScreen(0),
+        RegistrationScreen.id : (context) => LoginScreen(1),
         ChatScreen.id : (context) => ChatScreen(),
 
       },
