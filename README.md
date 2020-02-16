@@ -24,7 +24,7 @@ An online chat application build with Flutter, Dart and Firestore.
 
 - [ ]  **Save messages:** Double tap on any message to save it locally. Saved messages can be viewed by swiping right to left on the chat screen.
 
-- [ ]  **Minimalism UI:** The UI is uncluttered and beautiful. Gestures are used to make it pragmatic instead of using additional screen space.
+- [x]  **Minimalism UI:** The UI is uncluttered and beautiful. Gestures are used to make it pragmatic instead of using additional screen space.
 
 
 
