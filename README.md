@@ -9,7 +9,8 @@ An online chat application build with Flutter, Dart and Firestore.
 2. Clone the repo
 3. From the terminal: Run ```flutter pub get``` OR 
    From Android Studio/IntelliJ: Click Packages get in the action ribbon at the top of pubspec.yaml.
-4. Run ```flutter run``` (make sure to have an emulator running).
+4. Run ```flutter run --release``` (make sure to have an emulator running).
+
 ## Todo
 
 - [ ]  **Authentication:** Passcode authentication is enabled which is needed to unlock hidden and locked chats. If your device supports fingerprint authentication, then you can use it as well.
