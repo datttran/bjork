@@ -1,10 +1,12 @@
 import 'package:bjork/screens/login_screen.dart';
+import 'package:bjork/screens/newLoginScreen.dart';
 import 'package:bjork/screens/registration_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bjork/constants.dart';
 import 'package:bjork/responsive/size_config.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui';
 
 class WelcomeScreen extends StatefulWidget {
   static String id  = 'welcomescreen';
@@ -89,10 +91,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 padding: EdgeInsets.all(0),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                 onPressed: () async {
+
                   await showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
-                  LoginScreen(0)).then((_)=> setState((){})
-                  );
-                  //Navigator.pushNamed(context, LoginScreen.id);
+                  LoginScreen(0));
+//                  showCupertinoModalPopup(context: context, builder: (BuildContext context) =>  );
                   //Go to login screen.
                 },
 

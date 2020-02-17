@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
-  int showID;
+  final int showID;
   static String id = 'login_screen';
 
   LoginScreen(this.showID);
@@ -39,12 +39,12 @@ class _LoginScreenState extends State<LoginScreen> {
     userPages = colorCheck();
 
 
-    _pageController = PageController();
+    _pageController = PageController(initialPage: shareValue);
     SystemChrome.setEnabledSystemUIOverlays([]);
   }
   void _onButtonPress(value) {
     _pageController.animateToPage(value,
-        duration: Duration(milliseconds: 500), curve: Curves.decelerate);
+        duration: Duration(milliseconds: 550), curve: Curves.decelerate);
   }
 
 
