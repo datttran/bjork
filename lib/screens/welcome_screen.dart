@@ -90,9 +90,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 //color: Color(0xff7663E9),
                 padding: EdgeInsets.all(0),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                onPressed: () async {
+                onPressed: () {
 
-                  await showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
+                  showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
                   LoginScreen(0));
 //                  showCupertinoModalPopup(context: context, builder: (BuildContext context) =>  );
                   //Go to login screen.
@@ -132,7 +132,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: GestureDetector(
                 onTap: () async {
                   await showCupertinoModalPopup(context: context, builder: (BuildContext context) =>
-                      LoginScreen(1)).then((_)=> setState((){})
+                      LoginScreen(1)
                   );
                   //Go to registration screen.
                 },

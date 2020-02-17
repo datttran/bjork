@@ -42,13 +42,32 @@ class _LoginScreenState extends State<LoginScreen> {
     _pageController = PageController(initialPage: shareValue);
     SystemChrome.setEnabledSystemUIOverlays([]);
   }
-  void _onButtonPress(value) {
-    _pageController.animateToPage(value,
+  void _onButtonPress(val) {
+    _pageController.animateToPage(val,
         duration: Duration(milliseconds: 550), curve: Curves.decelerate);
+    setState(() {
+
+      if(val == 0){
+
+        userPages = setColor(Colors.black, Colors.white);
+
+
+      }
+      else{
+
+        userPages = setColor(Colors.white, Colors.black);
+
+
+      }
+
+
+    });
   }
 
 
+  void onPageChange(val){
 
+  }
 
 
   PageController _pageController;
@@ -81,23 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               _onButtonPress(val);
 
 
-                              setState(() {
-
-                                if(val == 0){
-
-                                  userPages = setColor(Colors.black, Colors.white);
 
 
-                                }
-                                else{
 
-                                  userPages = setColor(Colors.white, Colors.black);
-
-
-                                }
-
-
-                              });
 
                             },
                             children: userPages,
@@ -127,22 +132,9 @@ buildPageView() {
 
       child: PageView(
         onPageChanged: (int val){
-          setState(() {
-            shareValue = val;
-            if(val == 0){
+          shareValue = val;
+          _onButtonPress(val);
 
-              userPages = setColor(Colors.black, Colors.white);
-
-
-            }
-            else{
-
-              userPages = setColor(Colors.white, Colors.black);
-
-
-            }
-
-          });
         },
 
         controller: _pageController,
